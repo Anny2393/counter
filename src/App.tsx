@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {MouseEvent, useState} from 'react';
+import './App.module.css';
+import {Button} from "./components/Button";
+
 
 function App() {
+
+  let [counter, setCounter] = useState(0)
+
+  const onclickHandler = () => {
+    setCounter(counter + 1)
+
+  }
+
+  const onclickHandler0 = () => {
+    setCounter(0)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className="App">
+        <div>{counter}</div>
+        <button onClick={onclickHandler} disabled={counter === 5}>inc</button>
+        <button onClick={onclickHandler0} disabled={counter === 0}>reset</button>
+      </div>
+  )
 }
+
 
 export default App;
